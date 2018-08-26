@@ -1,5 +1,6 @@
 package com.adaptionsoft.games.trivia.runner
 
+import com.adaptionsoft.games.trivia.Players
 import com.adaptionsoft.games.uglytrivia.Game
 import java.util.*
 
@@ -7,11 +8,7 @@ object GameRunner {
     var notAWinner: Boolean = false
 
     fun runTheGame(rand: Random) {
-        val aGame = Game()
-
-        aGame.add("Chet")
-        aGame.add("Pat")
-        aGame.add("Sue")
+        val aGame = Game(Players.aNew("Chet", "Pat", "Sue"))
 
         do {
 

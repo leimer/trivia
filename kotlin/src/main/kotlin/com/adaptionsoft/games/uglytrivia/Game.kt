@@ -1,29 +1,39 @@
 package com.adaptionsoft.games.uglytrivia
 
+import com.adaptionsoft.games.trivia.Players
 import java.util.*
 
 class Game {
-    var players = ArrayList<Any>()
-    var places = IntArray(6)
-    var purses = IntArray(6)
-    var inPenaltyBox = BooleanArray(6)
-
-    var popQuestions = LinkedList<Any>()
-    var scienceQuestions = LinkedList<Any>()
-    var sportsQuestions = LinkedList<Any>()
-    var rockQuestions = LinkedList<Any>()
-
-    var currentPlayer = 0
-    var isGettingOutOfPenaltyBox: Boolean = false
-
-    init {
+    constructor(aNew: Players) {
+        this.players = ArrayList<Any>()
+        this.places = IntArray(6)
+        this.purses = IntArray(6)
+        this.inPenaltyBox = BooleanArray(6)
+        this.popQuestions = LinkedList<Any>()
+        this.scienceQuestions = LinkedList<Any>()
+        this.sportsQuestions = LinkedList<Any>()
+        this.rockQuestions = LinkedList<Any>()
         for (i in 0..49) {
             popQuestions.addLast("Pop Question " + i)
             scienceQuestions.addLast("Science Question " + i)
             sportsQuestions.addLast("Sports Question " + i)
             rockQuestions.addLast(createRockQuestion(i))
         }
+        aNew.players.map { add(it) }
     }
+
+    var players: ArrayList<Any>
+    var places: IntArray
+    var purses: IntArray
+    var inPenaltyBox: BooleanArray
+
+    var popQuestions: LinkedList<Any>
+    var scienceQuestions: LinkedList<Any>
+    var sportsQuestions: LinkedList<Any>
+    var rockQuestions: LinkedList<Any>
+
+    var currentPlayer = 0
+    var isGettingOutOfPenaltyBox: Boolean = false
 
     fun createRockQuestion(index: Int): String {
         return "Rock Question " + index
@@ -33,7 +43,7 @@ class Game {
         return howManyPlayers() >= 2
     }
 
-    fun add(playerName: String): Boolean {
+    private fun add(playerName: String): Boolean {
 
 
         players.add(playerName)

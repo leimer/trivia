@@ -12,7 +12,7 @@ import java.nio.file.Path
 import java.nio.file.Paths
 import java.util.*
 
-class SomeTest {
+class GolenMasterTest {
 
     @Test
     @Ignore
